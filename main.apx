@@ -1,0 +1,18 @@
+@include "std"
+using namespace std;
+var x: int;
+
+namespace hello{
+    func hello(){
+        print("Hello\n");
+    }
+};
+
+using namespace hello;
+hello();
+
+func main(): int => {
+    print("Hello, World!\n");
+}
+
+x = (10*6/12-1)+12;
