@@ -1,4 +1,4 @@
-# cosmos
+# Cosmos
 
 ### A programming language to test my knowlegde, it's completly inspired by the fact that one of my friends challenged me to write an interpreted language as well as a compiled language. So i took on the challenge that cosmos is the result of it
 
