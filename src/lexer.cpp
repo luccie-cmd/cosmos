@@ -16,11 +16,15 @@ bool IsDecimal(char c) { return c >= '0' && c <= '9'; }
 bool IsOctal(char c) { return c >= '0' && c <= '7'; }
 bool IsHex(char c) { return (c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'); }
 
-namespace apx{
+namespace cosmos{
 static std::vector<std::pair<TokenType, std::string>> keywords = {
     {TokenType::VAR, "var"},
     {TokenType::INT, "int"},
+    {TokenType::STR, "str"},
+    {TokenType::FUNC, "func"},
+    {TokenType::USING, "using"},
     {TokenType::INCLUDE, "include"},
+    {TokenType::NAMESPACE, "namespace"},
 };
 // Tries to determine if a string is an identifier || a keyword
 static TokenType get_keyword_or_identifier(std::string value){

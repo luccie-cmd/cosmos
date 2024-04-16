@@ -19,9 +19,13 @@ int main(int argc, char *argv[]){
     auto opts = options::parse(argc, argv);
     std::string file_content = opts.get<"File Name">()->contents;
     // std::string file_path = opts.get<"File Name">()->path.string();
-    apx::Lexer lexer(file_content);
-    apx::Parser parser(lexer);
-    apx::AstNode *node = parser.next_node();
-    node->print();
+    cosmos::Lexer lexer(file_content);
+    cosmos::Parser parser(lexer);
+    cosmos::AstNode *node = parser.next_node();
+    // The last node w
+    while(node->get_type() != cosmos::AstType::INVALID){
+        node->print();
+        node = parser.next_node();
+    }
     return 0;
 }

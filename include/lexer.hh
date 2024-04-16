@@ -1,12 +1,12 @@
-#if !defined(_APEX_LEXER_HH_)
-#define _APEX_LEXER_HH_
+#if !defined(_COSMOS_LEXER_HH_)
+#define _COSMOS_LEXER_HH_
 #include <string>
 #include <vector>
 #include <cstdint>
 #include <fmt/core.h>
 #include "token.hh"
 
-namespace apx{
+namespace cosmos{
 class Lexer{
     private:
         std::string data;
@@ -39,4 +39,4 @@ class Lexer{
 };
 };
 
-#endif // _APEX_LEXER_HH_
+#endif // _COSMOS_LEXER_HH_

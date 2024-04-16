@@ -1,8 +1,8 @@
-#if !defined(_APEX_TOKEN_HH_)
-#define _APEX_TOKEN_HH_
+#if !defined(_COSMOS_TOKEN_HH_)
+#define _COSMOS_TOKEN_HH_
 #include <string>
 
-namespace apx{
+namespace cosmos{
 enum struct TokenType{
     INVALID=0,
     TEOF=1, // Why not just EOF well C++ doesn't like that
@@ -29,20 +29,21 @@ enum struct TokenType{
     LIT_STRING,
     LIT_NUMBER,
 
-    RIGHT_ARROW,
-    LESSEQUAL,
-    LESSLESSEQUAL,
-    LESSLESS,
-    GREATEREQUAL,
-    GREATERGREATEREQUAL,
-    GREATERGREATER,
-    EQUALEQUAL,
-    PLUSPLUS,
-    MINUSMINUS,
+    RIGHT_ARROW, // =>
+    LESSEQUAL, // <=
+    LESSLESSEQUAL, // <<=
+    LESSLESS, // <<
+    GREATEREQUAL, // >=
+    GREATERGREATEREQUAL, // >>=
+    GREATERGREATER, // >>
+    EQUALEQUAL, // ==
+    PLUSPLUS, // ++
+    MINUSMINUS, // --
     
     __KEYWORDS_START,
     VAR,
     INT,
+    STR,
     USING,
     NAMESPACE,
     FUNC,
@@ -64,4 +65,4 @@ class Token{
 };
 };
 
-#endif // _APEX_TOKEN_HH_
+#endif // _COSMOS_TOKEN_HH_

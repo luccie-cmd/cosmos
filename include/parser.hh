@@ -1,11 +1,11 @@
-#if !defined(_APEX_PARSER_HH_)
-#define _APEX_PARSER_HH_
+#if !defined(_COSMOS_PARSER_HH_)
+#define _COSMOS_PARSER_HH_
 #include "lexer.hh"
 #include "token.hh"
 #include "ast.hh"
 #include <vector>
 
-namespace apx{
+namespace cosmos{
 class Parser{
     private:
         std::vector<Token> tokens;
@@ -19,13 +19,18 @@ class Parser{
                 this->current = Token("EOF", TokenType::TEOF);
             }
         }
-        void expect(TokenType tt, std::string errormessage){
+        Token expect(TokenType tt, std::string errormessage){
             if(current.get_type() != tt){
                 fmt::print("{}", errormessage);
                 exit(1);
             }
+            Token t = current;
             this->consume();
+            return t;
         }
+        AstNode* parse_binary_expr();
+        AstNode* parse_add_binary_expr(); // Handles + and - 
+        AstNode* parse_mul_binary_expr(); // Handles * and /
     public:
         Parser(Lexer lexer) :current(Token("Invalid", TokenType::INVALID)) {
             this->tokens = lexer.lex_all_tokens();
@@ -40,7 +45,16 @@ class Parser{
         }
         AstNode* preprocessor();
         AstNode* next_node();
+        AstNode* parse_using();
+        AstNode* parse_var();
+        AstNode* parse_expr();
+        AstNode* parse_string();
+        AstNode* parse_primary_expr();
+        NodeAssignOp* parse_assign_op();
+        Types parse_type();
+        ConstructorType parse_constructor_type();
+        Operator parse_operator();
 };
 };
 
-#endif // _APEX_PARSER_HH_
+#endif // _COSMOS_PARSER_HH_
